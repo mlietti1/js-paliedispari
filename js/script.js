@@ -1,14 +1,13 @@
-const string = document.getElementById('palindrome-input').value;
+const input = document.querySelector('#palindrome-input');
+const btnPal = document.querySelector('.verifica');
 
-const btn = document.querySelector('.verifica');
-
-btn.addEventListener('click', function(){
+btnPal.addEventListener('click', function(){
   const result = document.getElementById('result-palindrome');
   printResult(result);
 })
 
 function printResult(target){
-  target.innerText = checkPalindrome(string);
+  target.innerText = checkPalindrome(input.value);
 }
 
 function checkPalindrome(string) {
@@ -23,3 +22,7 @@ function checkPalindrome(string) {
   }
   return 'It is a palindrome';
 }
+
+
+// --------------
+
