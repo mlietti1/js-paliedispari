@@ -27,23 +27,33 @@ function checkPalindrome(string) {
 // --------------
 
 
-const inputNum = document.querySelector('#select-number');
 const evenOdd = document.querySelector('#select-evenodd');
-const sum = randomNumber + inputNum.value;
 const btnEvenodd = document.querySelector('.play');
+const selectedNum = document.querySelector('#select-number');
+let numValue;
+
 
 btnEvenodd.addEventListener('click', function(){
+  numValue = parseInt(selectedNum.value);
+  const numPc = getRandomNumber(1, 5);
   const resultEvenodd = document.getElementById('result-evenodd');
+  const gameSum = numPc + numValue;
+  console.log(numValue);
+  console.log(numPc);
+  console.log(gameSum);
   printResultevenodd(resultEvenodd);
+
+  function printResultevenodd(target){
+    target.innerText = isEvenOdd(evenOdd.value, gameSum);
+  }
+
 })
 
-function printResultevenodd(target){
-  target.innerText = isEvenOdd;
-}
 
-function isEvenOdd (){
 
-  if (evenOdd.value === 'odd' && (sum % 2)){
+function isEvenOdd (inputValue, sum){
+
+  if (inputValue == 'odd' && (sum % 2)){
     return 'You won!';
   }
 
@@ -55,4 +65,3 @@ function getRandomNumber(min, max){
   const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
   return randomNumber;
 }
-
